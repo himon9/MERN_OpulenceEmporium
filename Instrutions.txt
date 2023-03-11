@@ -1,0 +1,7 @@
+For Dockerfile inside client and server, remember to include .dokerignore to hide node_module folder otherwise server error
+
+Steps for running the docker-compose file
+1. docker-compose build
+2. docker-comopse up
+3. We can also separately start the server and client by using " docker run <image_no>"
+(In order to get docker images, "docker images")

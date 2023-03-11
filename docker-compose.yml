@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: project_server
+    restart: unless-stopped
+    image: project_server-prod:1.0.0
+    build: 
+      context: server
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 1337:1337
+    networks:
+      - shared-network
+  
+  client:
+    container_name: project_client
+    restart: unless-stopped
+    image: project_client-prod:1.0.0
+    build: 
+      context: client
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - server
+
+
+networks:
+  shared-network:
