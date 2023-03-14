@@ -1,0 +1,13 @@
+{
+    "name": "mern_opulence_emporium",
+    "version": "1.0.0",
+    "author": "Himon Sarkar",
+    "scripts": {
+        "install-dependencies": "npm install && cd server && npm install && cd ../client && npm install",
+        "build": "npm run install-dependencies && cd server && npm run build && cd ../client && npm run build",
+        "start-app": "concurrently \"npm start --prefix server\" \"npm start --prefix client\""
+    },
+    "dependencies": {
+        "concurrently": "^7.6.0"
+    }
+}
